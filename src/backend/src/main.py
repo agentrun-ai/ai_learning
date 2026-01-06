@@ -1,5 +1,5 @@
 """
-舆情分析系统 - 纯 Python 后端
+AI搜学助手 - 纯 Python 后端
 
 提供：
 1. AG-UI API (/api/agent) - 支持实时状态推送的 SSE 通信
@@ -25,18 +25,18 @@ from ag_ui.core import RunAgentInput, EventType
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("\n" + "="*60)
-    print("🚀 启动舆情分析系统")
+    print("🚀 启动AI搜学助手")
     print("   - 实时状态推送")
     print("   - 代码控制流程")
     print("   - 严格数据收集")
     print("   - 多 Sandbox 支持")
     print("="*60)
     yield
-    print("\n🛑 关闭舆情分析系统")
+    print("\n🛑 关闭AI搜学助手")
 
 
 # ===== 主 FastAPI 应用 =====
-app = FastAPI(title="舆情分析系统", lifespan=lifespan)
+app = FastAPI(title="AI搜学助手", lifespan=lifespan)
 
 # CORS
 app.add_middleware(
@@ -192,7 +192,7 @@ async def run_agent_in_background(run_input: RunAgentInput, deps: StateDeps, run
             break
     
     if not user_message:
-        user_message = "开始舆情分析"
+        user_message = "开始学习分析"
     
     print(f"📝 用户消息: {user_message}")
     

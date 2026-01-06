@@ -736,7 +736,7 @@ export function OpinionDashboard() {
                           // 使用 html2pdf 的方式，但配置更高质量的 html2canvas
                           const opt = {
                             margin: [10, 10, 10, 10],
-                            filename: `${state.keyword || 'report'}_舆情分析报告.pdf`,
+                            filename: `${state.keyword || 'report'}_知识讲解报告.pdf`,
                             image: { type: 'jpeg', quality: 0.98 },
                             html2canvas: { 
                               scale: 2,

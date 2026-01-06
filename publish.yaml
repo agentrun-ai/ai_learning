@@ -1,15 +1,15 @@
 Edition: 3.0.0
 Type: Project
 Name: ai_learning
-Version: 0.0.1
+Version: 0.0.2
 Provider:
   - 阿里云
-Description: 基于AgentRun开发的舆情分析系统
+Description: 基于AgentRun开发的AI搜学助手
 HomePage: https://github.com/devsapp/agentrun-template
 Tags: #标签详情
   - PydanticAI 
   - 单智能体
-  - 舆情分析
+  - 知识学习
   - AG-UI
   - 浏览器沙箱
 Category: 人工智能

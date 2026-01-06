@@ -1,5 +1,5 @@
 """
-舆情分析统一计算标准
+学习分析统一计算标准
 确保在不同场景下使用一致的量化方法
 """
 from typing import List, Dict
@@ -120,7 +120,7 @@ class HeatStandards:
             
             return normalized[:7]
         else:
-            # 模拟典型舆情曲线：爆发-高峰-衰减
+            # 模拟典型热度曲线：起步-高峰-稳定
             base = max(10, data_count // 7)
             return [
                 int(base * 0.5),   # Day 1: 起始

@@ -3,8 +3,8 @@ import { ThemeProvider } from "../hooks/useTheme";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "舆情分析系统",
-  description: "多 Agent 舆情分析系统",
+  title: "AI搜学助手",
+  description: "AI驱动的智能学习助手",
 };
 
 export default function RootLayout({

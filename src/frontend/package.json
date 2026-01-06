@@ -2,7 +2,7 @@
   "name": "opinion-analysis",
   "version": "3.0.0",
   "private": true,
-  "description": "舆情分析系统",
+  "description": "AI搜学助手",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

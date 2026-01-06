@@ -1,5 +1,5 @@
 """
-舆情分析系统 - 流式输出架构
+AI搜学助手 - 流式输出架构
 
 核心设计原则：
 1. 代码控制流程流转，不依赖 LLM 自主决策
@@ -385,8 +385,8 @@ async def evaluate_relevance(keyword: str, title: str, snippet: str) -> float:
     if any(tk in text for tk in time_keywords):
         score += 0.1
     
-    # 3. 舆情相关性加分
-    opinion_keywords = ["评价", "评论", "看法", "观点", "讨论", "热议", "争议", "反响", "舆论", "如何看待", "怎么看", "网友"]
+    # 3. 内容相关性加分
+    opinion_keywords = ["评价", "评论", "看法", "观点", "讨论", "热议", "争议", "反响", "解析", "如何理解", "怎么学", "讲解"]
     if any(ok in text for ok in opinion_keywords):
         score += 0.1
     
@@ -572,7 +572,7 @@ async def llm_decide_exploration(
     if not available_actions:
         return {"should_explore": False, "action": None, "reason": "没有可用的操作"}
     
-    prompt = f"""你是舆情分析助手。请根据以下信息决定是否需要进一步探索页面获取更多舆情数据。
+    prompt = f"""你是学习资料收集助手。请根据以下信息决定是否需要进一步探索页面获取更多学习资料。
 
 【搜索关键词】{keyword}
 
@@ -588,9 +588,9 @@ async def llm_decide_exploration(
 
 【决策标准】
 1. 如果当前内容已经足够丰富（超过300字有效内容），可能不需要进一步探索
-2. 如果是微博/B站等平台，评论区通常包含重要的舆情信息，值得探索
+2. 如果是知乎/B站等平台，评论区通常包含重要的学习讨论，值得探索
 3. 如果页面需要登录才能查看更多内容，则不探索
-4. 如果相关推荐可能包含更多相关舆情，可以考虑探索
+4. 如果相关推荐可能包含更多相关学习资料，可以考虑探索
 5. 权衡时间成本，每个页面最多探索1-2个操作
 
 请返回 JSON 格式（必须是有效 JSON）：
@@ -604,7 +604,7 @@ async def llm_decide_exploration(
     try:
         explorer = Agent(
             agentrun_model,
-            system_prompt="你是舆情分析助手，帮助决定是否需要深入探索页面。只返回有效的 JSON。",
+            system_prompt="你是学习资料收集助手，帮助决定是否需要深入探索页面。只返回有效的 JSON。",
             retries=2,
         )
         
@@ -752,7 +752,7 @@ async def collect_data(
     keyword: str,
 ) -> str:
     """
-    收集舆情数据 - 流式输出，每条数据实时更新
+    收集学习资料 - 流式输出，每条数据实时更新
     
     Args:
         keyword: 要分析的关键词
